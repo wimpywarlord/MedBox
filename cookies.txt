@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+colony.bubbleapps.io	TRUE	/	FALSE	1999999999	colony_live_u2main	1638212322647x950852723888050200
+colony.bubbleapps.io	TRUE	/	FALSE	1999999999	colony_live_u2main.sig	vUmZPF13txkyjbBGu0JA5UgVKZo
+colony.bubbleapps.io	TRUE	/	FALSE	1999999999	colony_u1main	1638212322447x883211658049680000
+
