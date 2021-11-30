@@ -41,21 +41,31 @@ app.get("/", function (req, res) {
     res.render("index-leadgen-1.ejs");
 });
 
-app.get("/thankyou", function (req,res) {
+app.get("/thankyou", async function (req,res) {
     res.render("thankyoupage.ejs");
 })
 
-app.post("/form/user", function (req, res) {
+app.post("/form/user", async function (req, res) {
     console.log(req.body);
     var nameSend = req.body.cs2Name;
     var emailSend = req.body.cs2Email;
     var phoneNumberSend = req.body.cs2PhoneNum;
-    user_base.create({ name : nameSend, email: emailSend, phoneNumber: phoneNumberSend})
-    .then((data)=>{
-        res.send("success");
-    }).catch((err)=>{
-        res.send("Error Occurred. Please Try Again.")
-    })
+    await user_base.create(
+        { name : nameSend,
+            email: emailSend,
+              phoneNumber: phoneNumberSend
+        },
+        function (err, response) {
+            if (err) {
+                console.log("ENTRY IN THE BACKEND NOT CREATED.");
+                console.log(err)
+                res.send("Error. Please Try Again.");
+            } else {
+                console.log("SUCCESS");
+                res.send("success");
+            }
+        }
+      );
 });
 
 
